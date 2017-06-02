@@ -1,0 +1,1214 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QuickLibs.Data.QuickDB</name>
+    </assembly>
+    <members>
+        <member name="T:QuickLibs.Data.QuickDB">
+            <summary>
+            A simple class to handle database activity
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.#ctor(System.String)">
+            <summary>
+            Initiate with connection string ready to connect on demand.
+            </summary>
+            <param name="Connection">Name of connection string in config file.</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.#ctor(System.String,System.Boolean)">
+            <summary>
+            Initiate with connection string ready to connect on demand.
+            </summary>
+            <param name="Connection">Name of connection string in config file OR full connection string.</param>
+            <param name="FromWebConfig">True = Load from config (Default). False = Use "Connection" as connection string.</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.#ctor(System.String,System.String)">
+            <summary>
+            Initiate with trusted connection string based on given parameters.
+            </summary>
+            <param name="Server">SQL Server name / instance</param>
+            <param name="Database">SQL Database name</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initiate with connection string based on given parameters and credentials.
+            </summary>
+            <param name="Server">SQL Server name / instance</param>
+            <param name="Database">SQL Database name</param>
+            <param name="Username">SQL User username</param>
+            <param name="Password">Password</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.#ctor(System.Data.DataSet)">
+            <summary>
+            Allows quick, 'off-line' access to a DataSet without the need for a data connection.
+            </summary>
+            <param name="InDataSet">The 'off-line' DataSet to interrogate.</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.#ctor(System.Data.DataTable)">
+            <summary>
+            Allows quick, 'off-line' access to a DataSet without the need for a data connection.
+            </summary>
+            <param name="InDataTable">The 'off-line' DataTable to interrogate.</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.#ctor(System.Data.DataRow)">
+            <summary>
+            Allows quick, 'off-line' access to a DataSet without the need for a data connection.
+            </summary>
+            <param name="InDataRow">The 'off-line' DataRow to interrogate.</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.Finalize">
+            <summary>
+            Destructor
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.ToString">
+            <summary>
+            Returns the connection string of this QuckDB connection.
+            </summary>
+            <returns>Connection String (or "Off-line DataSet").</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetValue(System.String,System.Object)">
+            <summary>
+            Retreive a value from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name.</param>
+            <param name="ValIfNull">Value to return in case of a null response.</param>
+            <returns>DBNull safe value from the first Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetValue(System.String,System.Object,System.Int32)">
+            <summary>
+            Retreive a value from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name.</param>
+            <param name="ValIfNull">Value to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <returns>DBNull safe value from the indexed Row in the first Table current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetValue(System.String,System.Object,System.Int32,System.Int32)">
+            <summary>
+            Retreive a value from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name</param>
+            <param name="ValIfNull">Value to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>DBNull safe value from the indexed Row in the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetValue(System.Int32,System.Object)">
+            <summary>
+            Retreive a value from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="ValIfNull">Value to return in case of a null response.</param>
+            <returns>DBNull safe value from the first Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetValue(System.Int32,System.Object,System.Int32)">
+            <summary>
+            Retreive a value from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="ValIfNull">Value to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <returns>DBNull safe value from the indexed Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetValue(System.Int32,System.Object,System.Int32,System.Int32)">
+            <summary>
+            Retreive a value from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="ValIfNull">Value to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>DBNull safe value from the indexed Row in the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetString(System.String)">
+            <summary>
+            Retreive a string from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name.</param>
+            <returns>DBNull safe string from the first Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetString(System.String,System.String)">
+            <summary>
+            Retreive a string from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name.</param>
+            <param name="ValIfNull">String to return in case of a null response.</param>
+            <returns>DBNull safe string from the first Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetString(System.String,System.Int32)">
+            <summary>
+            Retreive a string from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <returns>DBNull safe string from the indexed Row in the first Table current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetString(System.String,System.String,System.Int32)">
+            <summary>
+            Retreive a string from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name.</param>
+            <param name="ValIfNull">String to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <returns>DBNull safe string from the indexed Row in the first Table current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetString(System.String,System.Int32,System.Int32)">
+            <summary>
+            Retreive a string from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>DBNull safe string from the indexed Row in the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetString(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Retreive a string from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name</param>
+            <param name="ValIfNull">String to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>DBNull safe string from the indexed Row in the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetString(System.Int32)">
+            <summary>
+            Retreive a string from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <returns>DBNull safe string from the first Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetString(System.Int32,System.String)">
+            <summary>
+            Retreive a string from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="ValIfNull">String to return in case of a null response.</param>
+            <returns>DBNull safe string from the first Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetString(System.Int32,System.Int32)">
+            <summary>
+            Retreive a string from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="ValIfNull">String to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <returns>DBNull safe string from the indexed Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetString(System.Int32,System.String,System.Int32)">
+            <summary>
+            Retreive a string from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="ValIfNull">String to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <returns>DBNull safe string from the indexed Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetString(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Retreive a string from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="ValIfNull">String to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>DBNull safe string from the indexed Row in the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetString(System.Int32,System.String,System.Int32,System.Int32)">
+            <summary>
+            Retreive a string from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="ValIfNull">String to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>DBNull safe string from the indexed Row in the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetInt(System.String)">
+            <summary>
+            Retreive a int from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name.</param>
+            <returns>DBNull safe int from the first Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetInt(System.String,System.Int32)">
+            <summary>
+            Retreive a int from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <returns>DBNull safe int from the indexed Row in the first Table current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetInt(System.String,System.Int32,System.Int32)">
+            <summary>
+            Retreive a int from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>DBNull safe int from the indexed Row in the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetInt(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Retreive a int from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name</param>
+            <param name="ValIfNull">Int to return in case of a null or invalid response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>DBNull safe int from the indexed Row in the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetInt(System.Int32)">
+            <summary>
+            Retreive a int from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <returns>DBNull safe int from the first Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetInt(System.Int32,System.Int32)">
+            <summary>
+            Retreive a int from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <returns>DBNull safe int from the indexed Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetInt(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Retreive a int from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>DBNull safe int from the indexed Row in the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetInt(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Retreive a int from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="ValIfNull">Int to return in case of a null or invalid response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>DBNull safe int from the indexed Row in the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDouble(System.String)">
+            <summary>
+            Retreive a Double from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name.</param>
+            <returns>DBNull safe Double from the first Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDouble(System.String,System.Double)">
+            <summary>
+            Retreive a Double from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name.</param>
+            <param name="ValIfNull">Double to return in case of a null response.</param>
+            <returns>DBNull safe Double from the first Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDouble(System.String,System.Int32)">
+            <summary>
+            Retreive a Double from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <returns>DBNull safe Double from the indexed Row in the first Table current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDouble(System.String,System.Double,System.Int32)">
+            <summary>
+            Retreive a Double from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name.</param>
+            <param name="ValIfNull">Double to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <returns>DBNull safe Double from the indexed Row in the first Table current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDouble(System.String,System.Int32,System.Int32)">
+            <summary>
+            Retreive a Double from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>DBNull safe Double from the indexed Row in the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDouble(System.String,System.Double,System.Int32,System.Int32)">
+            <summary>
+            Retreive a Double from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name</param>
+            <param name="ValIfNull">Double to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>DBNull safe Double from the indexed Row in the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDouble(System.Int32)">
+            <summary>
+            Retreive a Double from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <returns>DBNull safe Double from the first Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDouble(System.Int32,System.Double)">
+            <summary>
+            Retreive a Double from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="ValIfNull">Double to return in case of a null response.</param>
+            <returns>DBNull safe Double from the first Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDouble(System.Int32,System.Int32)">
+            <summary>
+            Retreive a Double from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="ValIfNull">Double to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <returns>DBNull safe Double from the indexed Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDouble(System.Int32,System.Double,System.Int32)">
+            <summary>
+            Retreive a Double from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="ValIfNull">Double to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <returns>DBNull safe Double from the indexed Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDouble(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Retreive a Double from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="ValIfNull">Double to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>DBNull safe Double from the indexed Row in the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDouble(System.Int32,System.Double,System.Int32,System.Int32)">
+            <summary>
+            Retreive a Double from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="ValIfNull">Double to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>DBNull safe Double from the indexed Row in the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetBool(System.String)">
+            <summary>
+            Retreive a Boolean from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name.</param>
+            <returns>DBNull safe Boolean from the first Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetBool(System.String,System.Boolean)">
+            <summary>
+            Retreive a Boolean from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name.</param>
+            <param name="ValIfNull">Boolean to return in case of a null response.</param>
+            <returns>DBNull safe Boolean from the first Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetBool(System.String,System.Int32)">
+            <summary>
+            Retreive a Boolean from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <returns>DBNull safe Boolean from the indexed Row in the first Table current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetBool(System.String,System.Boolean,System.Int32)">
+            <summary>
+            Retreive a Boolean from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name.</param>
+            <param name="ValIfNull">Boolean to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <returns>DBNull safe Boolean from the indexed Row in the first Table current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetBool(System.String,System.Int32,System.Int32)">
+            <summary>
+            Retreive a Boolean from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>DBNull safe Boolean from the indexed Row in the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetBool(System.String,System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            Retreive a Boolean from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name</param>
+            <param name="ValIfNull">Boolean to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>DBNull safe Boolean from the indexed Row in the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetBool(System.Int32)">
+            <summary>
+            Retreive a Boolean from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <returns>DBNull safe Boolean from the first Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetBool(System.Int32,System.Boolean)">
+            <summary>
+            Retreive a Boolean from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="ValIfNull">Boolean to return in case of a null response.</param>
+            <returns>DBNull safe Boolean from the first Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetBool(System.Int32,System.Int32)">
+            <summary>
+            Retreive a Boolean from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="ValIfNull">Boolean to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <returns>DBNull safe Boolean from the indexed Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetBool(System.Int32,System.Boolean,System.Int32)">
+            <summary>
+            Retreive a Boolean from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="ValIfNull">Boolean to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <returns>DBNull safe Boolean from the indexed Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetBool(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Retreive a Boolean from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="ValIfNull">Boolean to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>DBNull safe Boolean from the indexed Row in the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetBool(System.Int32,System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            Retreive a Boolean from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="ValIfNull">Boolean to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>DBNull safe Boolean from the indexed Row in the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDateTime(System.String)">
+            <summary>
+            Retreive a DateTime from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name.</param>
+            <returns>DBNull safe DateTime from the first Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDateTime(System.String,System.DateTime)">
+            <summary>
+            Retreive a DateTime from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name.</param>
+            <param name="ValIfNull">DateTime to return in case of a null response.</param>
+            <returns>DBNull safe DateTime from the first Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDateTime(System.String,System.Int32)">
+            <summary>
+            Retreive a DateTime from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <returns>DBNull safe DateTime from the indexed Row in the first Table current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDateTime(System.String,System.DateTime,System.Int32)">
+            <summary>
+            Retreive a DateTime from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name.</param>
+            <param name="ValIfNull">DateTime to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <returns>DBNull safe DateTime from the indexed Row in the first Table current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDateTime(System.String,System.Int32,System.Int32)">
+            <summary>
+            Retreive a DateTime from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>DBNull safe DateTime from the indexed Row in the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDateTime(System.String,System.DateTime,System.Int32,System.Int32)">
+            <summary>
+            Retreive a DateTime from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Name">Column Name</param>
+            <param name="ValIfNull">DateTime to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>DBNull safe DateTime from the indexed Row in the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDateTime(System.Int32)">
+            <summary>
+            Retreive a DateTime from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <returns>DBNull safe DateTime from the first Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDateTime(System.Int32,System.DateTime)">
+            <summary>
+            Retreive a DateTime from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="ValIfNull">DateTime to return in case of a null response.</param>
+            <returns>DBNull safe DateTime from the first Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDateTime(System.Int32,System.Int32)">
+            <summary>
+            Retreive a DateTime from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <returns>DBNull safe DateTime from the indexed Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDateTime(System.Int32,System.DateTime,System.Int32)">
+            <summary>
+            Retreive a DateTime from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="ValIfNull">DateTime to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <returns>DBNull safe DateTime from the indexed Row in the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDateTime(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Retreive a DateTime from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>DBNull safe DateTime from the indexed Row in the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDateTime(System.Int32,System.DateTime,System.Int32,System.Int32)">
+            <summary>
+            Retreive a DateTime from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="ValIfNull">DateTime to return in case of a null response.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>DBNull safe DateTime from the indexed Row in the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetSum(System.String)">
+            <summary>
+            This function returns the aggregate sum of all the numeral values in the given column in the first table.
+            </summary>
+            <param name="Name">Column Name</param>
+            <returns>The aggregate sum of given column.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetSum(System.String,System.Int32)">
+            <summary>
+            This function returns the aggregate sum of all the numeral values in the given column in the indexed table.
+            </summary>
+            <param name="Name">Column Name</param>
+            <param name="TableNumber">Table Index (0 based)</param>
+            <returns>The aggregate sum of given column.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetRow">
+            <summary>
+            Returns a DataRow from the current DataSet.
+            </summary>
+            <returns>The first Row from the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetRow(System.Int32)">
+            <summary>
+            Returns a DataRow from the current DataSet.
+            </summary>
+            <param name="RowNumber">Row Index (0 based)</param>
+            <returns>The indexed Row from the first Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetRow(System.Int32,System.Int32)">
+            <summary>
+            Returns a DataRow from the current DataSet.
+            </summary>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>The indexed Row from the indexed Table in the current DataSet</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetTable">
+            <summary>
+            Returns a DataTable from the current DataSet.
+            </summary>
+            <returns>The indedxed Table from the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetTable(System.Int32)">
+            <summary>
+            Returns a DataTable from the current DataSet.
+            </summary>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>The indedxed Table from the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetTable(System.String)">
+            <summary>
+            Returns a DataTable from the current DataSet.
+            </summary>
+            <param name="TableName">Table Name.</param>
+            <returns>The named Table from the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetDataSet">
+            <summary>
+                Returns the current DataSet.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.TableCount">
+            <summary>
+            Returns the number of tables in the current DataSet. 
+            </summary>
+            <returns>Number of tables in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.RowCount">
+            <summary>
+            Returns the number of rows from the current DataSet. 
+            </summary>
+            <returns>Number of rows in the first Table of the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.RowCount(System.Int32)">
+            <summary>
+            Returns the number of rows from the current DataSet.
+            </summary>
+            <param name="TableNumber">Table Index (0 based)</param>
+            <returns>Number of rows in the indexed Table in the current DataSet</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.RowCount(System.String)">
+            <summary>
+            Returns the number of rows from the current DataSet.
+            </summary>
+            <param name="TableName">Table Name.</param>
+            <returns>Number of rows in the indexed Table in the current DataSet</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetColumnName(System.Int32)">
+            <summary>
+            Returns the ColumnName of the given Column Index in the first table.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <returns>The Column Name of the indexed column in the first Table of the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetColumnName(System.Int32,System.Int32)">
+            <summary>
+            Returns the ColumnName of the given Column Index and Table.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>The Column Name of the indexed column in the indexed Table of the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetColumnName(System.Int32,System.String)">
+            <summary>
+            Returns the ColumnName of the given Column Index and Table Index.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="TableName">Table Name.</param>
+            <returns>The Column Name of the indexed column in the named Table of the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetTableName(System.Int32)">
+            <summary>
+            Returns the TableName of the given Table Index.
+            </summary>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>The Table Name of the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.SetValue(System.Object,System.String)">
+            <summary>
+            Sets a value in the current DataSet.
+            </summary>
+            <param name="Value">Value to be placed in the DataSet.</param>
+            <param name="Name">Column Name.</param>
+            <param name="ValIfNull">Value to return in case of a null response.</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.SetValue(System.Object,System.String,System.Int32)">
+            <summary>
+            Sets a value in the current DataSet.
+            </summary>
+            <param name="Value">Value to be placed in the DataSet.</param>
+            <param name="Name">Column Name.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.SetValue(System.Object,System.String,System.Int32,System.Int32)">
+            <summary>
+            Sets a value in the current DataSet.
+            </summary>
+            <param name="Value">Value to be placed in the DataSet.</param>
+            <param name="Name">Column Name</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.SetValue(System.Object,System.String,System.Int32,System.String)">
+            <summary>
+            Sets a value in the current DataSet.
+            </summary>
+            <param name="Value">Value to be placed in the DataSet.</param>
+            <param name="Name">Column Name</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableName">Table Name</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.SetValue(System.Object,System.Int32)">
+            <summary>
+            Retreive a value from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Value">Value to be placed in the DataSet.</param>
+            <param name="Index">Column Index (0 based).</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.SetValue(System.Object,System.Int32,System.Int32)">
+            <summary>
+            Retreive a value from the current DataSet. DataSet can be populated via the
+            QuickDB.Select() command or via the new QuickDB() constructor.
+            </summary>
+            <param name="Value">Value to be placed in the DataSet.</param>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.SetValue(System.Object,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Sets a value in the current DataSet.
+            </summary>
+            <param name="Value">Value to be placed in the DataSet.</param>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.SetValue(System.Object,System.Int32,System.Int32,System.String)">
+            <summary>
+            Sets a value in the current DataSet.
+            </summary>
+            <param name="Value">Value to be placed in the DataSet.</param>
+            <param name="Name">Column Index (0 based).</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableName">Table Name</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.SetRow(System.Data.DataRow,System.Int32)">
+            <summary>
+            Sets the contents of a DataRow. The format must match the destination table.
+            </summary>
+            <param name="dbRow">A row of table content.</param>
+            <param name="RowNumber">Row Index (0 based)</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.SetRow(System.Data.DataRow,System.Int32,System.Int32)">
+            <summary>
+            Sets the contents of a DataRow. The format must match the destination table.
+            </summary>
+            <param name="dbRow">A row of table content.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.SetRow(System.Data.DataRow,System.Int32,System.String)">
+            <summary>
+            Sets the contents of a DataRow. The format must match the destination table.
+            </summary>
+            <param name="dbRow">A row of table content.</param>
+            <param name="RowNumber">Row Index (0 based).</param>
+            <param name="TableNumber">Table Name.</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.SetTable(System.Data.DataTable)">
+            <summary>
+            Sets the contents of a DataTable.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.SetTable(System.Data.DataTable,System.Int32)">
+            <summary>
+            Sets the contents of a DataTable.
+            </summary>
+            <param name="NewTable">Table of Content.</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:QuickLibs.Data.QuickDB.SetTable(System.Data.DataTable,System.String)" -->
+        <member name="M:QuickLibs.Data.QuickDB.SetColumnName(System.String,System.Int32)">
+            <summary>
+            Sets the ColumnName of the given Column Index in the first table.
+            </summary>
+            <param name="Name">New Column Name.</param>
+            <param name="Index">Column Index (0 based).</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.SetColumnName(System.String,System.Int32,System.Int32)">
+            <summary>
+            Sets the ColumnName of the given Column Index and Table Index.
+            </summary>
+            <param name="Name">New Column Name.</param>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.SetColumnName(System.String,System.Int32,System.String)">
+            <summary>
+            Sets the ColumnName of the given Column Index and Table Index.
+            </summary>
+            <param name="Name">New Column Name.</param>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="TableName">Table Name.</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.SetTableName(System.String,System.Int32)">
+            <summary>
+            Sets the TableName of the given Table Index.
+            </summary>
+            <param name="Name">New Table Name.</param>
+            <param name="TableNumber">Table Index (0 based).</param>
+            <returns>The Table Name of the indexed Table in the current DataSet.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.RemoveColumn(System.Int32,System.Int32)">
+            <summary>
+            Removes a column from the given table.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="TableNumber">Table Number (0 based).</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.RemoveColumn(System.String,System.Int32)">
+            <summary>
+            Removes a column from the given table.
+            </summary>
+            <param name="ColName">Column Name.</param>
+            <param name="TableNumber">Table Number (0 based).</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.RemoveColumn(System.Int32,System.String)">
+            <summary>
+            Removes a column from the given table.
+            </summary>
+            <param name="Index">Column Index (0 based).</param>
+            <param name="TableName">Table Name.</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.RemoveColumn(System.String,System.String)">
+            <summary>
+            Removes a column from the given table.
+            </summary>
+            <param name="ColName">Column Name.</param>
+            <param name="TableName">Table Name.</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.Select(System.String)">
+            <summary>
+            Execute a SQL Select statement and output the results in the form of a DataSet.
+            This DataSet can be accessed via the QuickDB.GetValue() commands, or copied into another DataSet object
+            directly from this command.
+            </summary>
+            <param name="SqlStatement">SQL Select Statement</param>
+            <returns>Response data from the database.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:QuickLibs.Data.QuickDB.Select(System.String,QuickLibs.Data.CmdType)" -->
+        <member name="M:QuickLibs.Data.QuickDB.SetSelectParameter(System.String,System.Object)">
+            <summary>
+            Add or edit a parameter value for the Select command.
+            </summary>
+            <param name="Name">Parameter Name</param>
+            <param name="Value">Parameter Value</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.Insert(System.String)">
+            <summary>
+            Execute a SQL Insert statement and output the number of rows affected.
+            Return Value -100 = Connection error, -10 = Syntax error or Stored procedure not found.
+            </summary>
+            <param name="SqlStatement">SQL Insert Statement, or Stored Procedure name.</param>
+            <returns>Number of rows affected.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.Insert(System.String,QuickLibs.Data.CmdType)">
+            <summary>
+            Execute a SQL Insert statement and output the number of rows affected.
+            Return Value -100 = Connection error, -10 = Syntax error or Stored procedure not found.
+            </summary>
+            <param name="SqlStatement">SQL Insert Statement, or Stored Procedure name.</param>
+            <param name="SqlCommandType">Command Type - Text or Stored Procedure. Default depends on SQL Statement (Starts with INSERT)</param>
+            <returns>Number of rows affected.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.SetInsertParameter(System.String,System.Object)">
+            <summary>
+            Add or edit a parameter value for the Insert command.
+            </summary>
+            <param name="Name">Parameter Name</param>
+            <param name="Value">Parameter Value</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.Update(System.String)">
+            <summary>
+            Execute a SQL Update statement and output the number of rows affected.
+            Return Value -100 = Connection error, -10 = Syntax error or Stored procedure not found.
+            </summary>
+            <param name="SqlStatement">SQL Update Statement, or Stored Procedure name.</param>
+            <returns>Number of rows affected.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.Update(System.String,QuickLibs.Data.CmdType)">
+            <summary>
+            Execute a SQL Update statement and output the number of rows affected.
+            Return Value -100 = Connection error, -10 = Syntax error or Stored procedure not found.
+            </summary>
+            <param name="SqlStatement">SQL Update Statement, or Stored Procedure name.</param>
+            <param name="SqlCommandType">Command Type - Text or Stored Procedure. Default depends on SQL Statement (Starts with UPDATE)</param>
+            <returns>Number of rows affected.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.SetUpdateParameter(System.String,System.Object)">
+            <summary>
+            Add or edit a parameter value for the Update command.
+            </summary>
+            <param name="Name">Parameter Name</param>
+            <param name="Value">Parameter Value</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.Delete(System.String)">
+            <summary>
+            Execute a SQL Delete statement and output the number of rows affected.
+            Return Value -100 = Connection error, -10 = Syntax error or Stored procedure not found.
+            </summary>
+            <param name="SqlStatement">SQL Delete Statement, or Stored Procedure name.</param>
+            <param name="SqlCommandType">Command Type - Text or Stored Procedure.</param>
+            <returns>Number of rows affected.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.Delete(System.String,QuickLibs.Data.CmdType)">
+            <summary>
+            Execute a SQL Insert Delete and output the number of rows affected.
+            Return Value -100 = Connection error, -10 = Syntax error or Stored procedure not found.
+            </summary>
+            <param name="SqlStatement">SQL Delete Statement, or Stored Procedure name.</param>
+            <param name="SqlCommandType">Command Type - Text or Stored Procedure. Default depends on SQL Statement (Starts with DELETE)</param>
+            <returns>Number of rows affected.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.SetDeleteParameter(System.String,System.Object)">
+            <summary>
+            Add or edit a parameter value for the Delete command.
+            </summary>
+            <param name="Name">Parameter Name</param>
+            <param name="Value">Parameter Value</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.Execute(System.String)">
+            <summary>
+            Execute a generic SQL statement with no output.
+            (N.B. This actually utilises the Update Command)
+            </summary>
+            <param name="SqlStatement">SQL Statement, or Stored Procedure name.</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.Execute(System.String,QuickLibs.Data.CmdType)">
+            <summary>
+            Execute a generic SQL statement with no output.
+            (N.B. This actually utilises the Update Command)
+            </summary>
+            <param name="SqlStatement">SQL Statement, or Stored Procedure name.</param>
+            <param name="SqlCommandType">Command Type - Text or Stored Procedure. Default depends on SQL Statement (Starts with UPDATE)</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.SetExecuteParameter(System.String,System.Object)">
+            <summary>
+            Add or edit a parameter value for the Execute command.
+            (N.B. This actually utilises the Update Command)
+            </summary>
+            <param name="Name">Parameter Name</param>
+            <param name="Value">Parameter Value</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.Import(System.String)">
+            <summary>
+            Copies all the rows in the relevant DataTable into SQL table.
+            If a table exists within the DataSet with the same name as the destination SQL Table Name, that table will be imported.
+            Otherwise the first table in the dataset will be imported.
+            Column names in both tables must match.
+            </summary>
+            <param name="SQLTableName">Destination SQL Table Name.</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.Import(System.String,System.Int32)">
+            <summary>
+            Copies all the rows in the given DataTable into SQL table.
+            Column names in both tables must match.
+            </summary>
+            <param name="SQLTableName">Destination SQL Table Name.</param>
+            <param name="TableNumber">Source Table Number to import (0 based).</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.Import(System.String,System.String)">
+            <summary>
+            Copies all the rows in the given DataTable into SQL table.
+            Column names in both tables must match.
+            </summary>
+            <param name="SQLTableName">Destination SQL Table Name.</param>
+            <param name="TableName">Source Table Name.</param>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.Import(System.String,System.Data.DataTable)">
+            <summary>
+            Copies all the rows in the given DataTable into SQL table.
+            Column names in both tables must match.
+            </summary>
+            <param name="SQLTableName">Destination SQL Table Name.</param>
+            <param name="dbTable">Source DataTable to import.</param>
+        </member>
+        <member name="P:QuickLibs.Data.QuickDB.LastException">
+            <summary>
+            Returns the latest exception.
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Data.QuickDB.DefaultString">
+            <summary>
+            Gets or sets the default string to be used in case of null values. (Initially: "")
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Data.QuickDB.DefaultInt">
+            <summary>
+            Gets or sets the default int to be used in case of null values. (Initially: 0)
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Data.QuickDB.DefaultDouble">
+            <summary>
+            Gets or sets the default double to be used in case of null values. (Initially: 0.0)
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Data.QuickDB.DefaultBool">
+            <summary>
+            Gets or sets the default boolean to be used in case of null values. (Initially: false)
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Data.QuickDB.DefaultDateTime">
+            <summary>
+            Gets or sets the default date time to be used in case of null values. (Initially: DateTime.MinValue)
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Data.QuickDB.Timeout">
+            <summary>
+            Gets or Sets the wait time before terminating an attempt to execute a command and generating an error.
+            </summary>
+        </member>
+        <member name="E:QuickLibs.Data.QuickDB.InfoMessage">
+            <summary>
+            This event handler will pass a string message every time a PRINT command is executed.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.pl(System.String,System.String)">
+            <summary>
+            Returns one of two strings dependant on whether or not the LastResult should be refered to as plural.
+            eg. "There are x report(s)" becomes "There " + pl("is","are") + " x report" + pl("","s")
+            </summary>
+            <param name="Singular">Expression for 1 item.</param>
+            <param name="Plural">Expression for multiple items.</param>
+            <returns>Singular or Plural phrase.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetLastException">
+            <summary>
+            Returns the latest exception.
+            </summary>
+            <returns>LastException</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.HasErrors">
+            <summary>
+            Did the last operation cause an exception.
+            </summary>
+            <returns>True if there was an exception.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.HasResult">
+            <summary>
+            Did the last operation return any records.
+            </summary>
+            <returns>True if there was an exception.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.HasResult(System.Int32)">
+            <summary>
+            Did the last operation return any records in the given table.
+            </summary>
+            <param name="TableNumber">Table Index (0 based)</param>
+            <returns>True if there was an exception.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.ClearLastException">
+            <summary>
+            Clears the last exception from memory.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.pl(System.Double,System.String,System.String)">
+            <summary>
+            Returns one of two strings dependant on whether or not the given value should be refered to as plural.
+            eg. "There are x report(s)" becomes "There " + pl(x,"is","are") + " x report" + pl(x,"","s")
+            </summary>
+            <param name="Value">Number of items.</param>
+            <param name="Singular">Expression for 1 item.</param>
+            <param name="Plural">Expression for multiple items.</param>
+            <returns>Singular or Plural phrase.</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetHash(System.String)">
+            <summary>
+              Generates a SHA1 hash string from the given input string.
+            </summary>
+            <param name="str">String to hash</param>
+            <returns></returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.GetHash(System.String,System.String)">
+            <summary>
+              Generates a SHA1 hash string from the given input.
+            </summary>
+            <param name="str">String to hash</param>
+            <param name="salt">Salt to further obscure the hash.</param>
+            <returns>SHA1 hash (with salt)</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.FromCamel(System.String)">
+            <summary>
+              Takes a camel case string (as commonly used in column names) and returns the string with spaces.
+            </summary>
+            <param name="str">SomeCamelCaseString</param>
+            <returns>Some Camel Case String</returns>
+        </member>
+        <member name="M:QuickLibs.Data.QuickDB.ToCamel(System.String)">
+            <summary>
+              Takes a string of words separated by spaces and returns a camel case string.
+            </summary>
+            <param name="str">Some camel case string</param>
+            <returns>SomeCamelCaseString</returns>
+        </member>
+    </members>
+</doc>

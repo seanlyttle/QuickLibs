@@ -1,0 +1,560 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QuickLibs.Web.QuickHtml</name>
+    </assembly>
+    <members>
+        <member name="T:QuickLibs.Web.QuickHtml">
+            <summary>
+            Quickly generates and output HTML to the client.  Write less, do more HTML library.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.#ctor">
+            <summary>
+                Creates an HTML element with the tagName "div".
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.#ctor(System.String)">
+            <summary>
+                Creates an HTML element with the given tagName.
+            </summary>
+            <param name="tagName">Html tag name for the element. Default: "div".</param>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.#ctor(System.String,System.String)">
+            <summary>
+                Creates an HTML element with the given tagName and innerHtml.
+            </summary>
+            <param name="tagName">Html tag name for the element. Default: "div".</param>
+            <param name="innerHtml">Html content for the element. Default: "".</param>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.#ctor(System.String,System.String,System.String)">
+            <summary>
+                Creates an HTML element with the given tagName, innerHtml and id attribute.
+            </summary>
+            <param name="tagName">Html tag name for the element. Default: "div".</param>
+            <param name="innerHtml">Html content for the element. Default: "".</param>
+            <param name="id">Html identifier for the element. Default: "".</param>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.#ctor(System.Web.UI.Control)">
+            <summary>
+                Creates an HTML element from the given HtmlGenericControl.
+            </summary>
+            <param name="element">Any HtmlGenericControl.</param>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.#ctor(System.Data.DataRow)">
+            <summary>
+                Generates an HTML table row from the given DataRow.
+            </summary>
+            <param name="dr">DataRow containing data.</param>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.#ctor(System.Data.DataRow,System.String)">
+            <summary>
+                Generates an HTML table row from the given DataRow.
+            </summary>
+            <param name="dr">DataRow containing data.</param>
+            <param name="RowClass">CSS Class to apply to individual rows.</param>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.#ctor(System.Data.DataTable)">
+            <summary>
+                Generates an HTML table from the given DataTable.
+            </summary>
+            <param name="dt">DataTable containing rows of data.</param>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.#ctor(System.Data.DataTable,System.String,System.String,System.String)">
+            <summary>
+                Generates an HTML table from the given DataTable.
+            </summary>
+            <param name="dt">DataTable containing rows of data.</param>
+            <param name="TableClass">CSS Class to apply to the table.</param>
+            <param name="RowClass">CSS Class to apply to individual rows.</param>
+            <param name="AltClass">CSS Class to apply to alternating rows.</param>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Finalize">
+            <summary>
+            Destructor
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Insert(System.Int32,System.Web.UI.Control)">
+            <summary>
+                Inserts the given element into the current QuickHtml at the given index.
+            </summary>
+            <param name="index">0 inserts before first child, -1 inserts before last child.</param>
+            <param name="element">element to insert</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Insert(System.Int32,QuickLibs.Web.QuickHtml)">
+            <summary>
+                Inserts the given element into the current QuickHtml at the given index.
+            </summary>
+            <param name="index">0 inserts before first child, -1 appends after last child, -2 inserts before last child.</param>
+            <param name="element">element to insert</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Insert(System.Int32,System.String)">
+            <summary>
+                Inserts literal text at the given index.
+            </summary>
+            <param name="text">Literal text to insert.</param>
+            <returns></returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Append(System.Web.UI.Control)">
+            <summary>
+                Appends an element after the last child.
+            </summary>
+            <param name="element">Element to append.</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Append(QuickLibs.Web.QuickHtml)">
+            <summary>
+                Appends an element after the last child.
+            </summary>
+            <param name="element">Element to append.</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Append(System.String)">
+            <summary>
+                Appends literal text after the last child.
+            </summary>
+            <param name="text">Literal text to append.</param>
+            <returns></returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Prepend(System.Web.UI.Control)">
+            <summary>
+                Prepends an element before the first child.
+            </summary>
+            <param name="element">Element to prepend.</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Prepend(QuickLibs.Web.QuickHtml)">
+            <summary>
+                Prepends an element before the first child.
+            </summary>
+            <param name="element">Element to prepend.</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Prepend(System.String)">
+            <summary>
+                Prepends literal text before the first child.
+            </summary>
+            <param name="text">Literal text to prepend.</param>
+            <returns></returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.AppendTo(System.Web.UI.Control)">
+            <summary>
+                Appends this element after the last child of the given element.
+            </summary>
+            <param name="element">Element to append to.</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.AppendTo(QuickLibs.Web.QuickHtml)">
+            <summary>
+                Appends this element after the last child of the given element.
+            </summary>
+            <param name="element">Element to append to.</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.PrependTo(System.Web.UI.Control)">
+            <summary>
+                Prepends this element after the last child of the given element.
+            </summary>
+            <param name="element">Element to prepend to.</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.PrependTo(QuickLibs.Web.QuickHtml)">
+            <summary>
+                Prepends this element after the last child of the given element.
+            </summary>
+            <param name="element">Element to prepend to.</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.InsertBefore(System.Web.UI.Control)">
+            <summary>
+                Inserts this element beofre the given element.
+            </summary>
+            <param name="element">Element to insert before.</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.InsertBefore(QuickLibs.Web.QuickHtml)">
+            <summary>
+                Inserts this element beofre the given element.
+            </summary>
+            <param name="element">Element to insert before.</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.InsertAfter(System.Web.UI.Control)">
+            <summary>
+                Inserts this element after the given element.
+            </summary>
+            <param name="element">Element to insert after.</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.InsertAfter(QuickLibs.Web.QuickHtml)">
+            <summary>
+                Inserts this element after the given element.
+            </summary>
+            <param name="element">Element to insert after.</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Clear">
+            <summary>
+                Removes all child elements within this element.
+            </summary>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Truncate(System.Int32)">
+            <summary>
+                Truncates the text within this control to the given length, hiding anything longer and providing a link to show it if required.
+            </summary>
+            <param name="TruncLength">Length of text to remain visible.</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Truncate(System.Int32,System.Int32)">
+            <summary>
+                Truncates the text within this control to the given length, hiding anything longer and providing a link to show it if required.
+            </summary>
+            <param name="TruncLength">Length of text to remain visible.</param>
+            <param name="MaxLength">Maximum length of text before applying truncation. (Default: 125% of TruncLength.)</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Truncate(System.Int32,System.Int32,System.String)">
+            <summary>
+                Truncates the text within this control to the given length, hiding anything longer and providing a link to show it if required.
+            </summary>
+            <param name="TruncLength">Length of text to remain visible.</param>
+            <param name="MaxLength">Maximum length of text before applying truncation. (Default: 125% of TruncLength.)</param>
+            <param name="MoreLinkText">Text to display in the "see more" link (Default: "See more", null = no link.)</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Truncate(System.Int32,System.String)">
+            <summary>
+                Truncates the text within this control to the given length, hiding anything longer and providing a link to show it if required.
+            </summary>
+            <param name="TruncLength">Length of text to remain visible.</param>
+            <param name="MoreLinkText">Text to display in the "see more" link (Default: "See more", null = no link.)</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Truncate(System.Int32,System.String,System.String)">
+            <summary>
+                Truncates the text within this control to the given length, hiding anything longer and providing a link to show it if required.
+            </summary>
+            <param name="TruncLength">Length of text to remain visible.</param>
+            <param name="MoreLinkText">Text to display in the "see more" link (Default: "See more", null = no link.)</param>
+            <param name="MoreLinkURL">URL to use for "see more" e.g. a link to full article. (Default: jQuery script to show hidden text.)</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Truncate(System.Int32,System.String,System.String,System.String)">
+            <summary>
+                Truncates the text within this control to the given length, hiding anything longer and providing a link to show it if required.
+            </summary>
+            <param name="TruncLength">Length of text to remain visible.</param>
+            <param name="MoreLinkText">Text to display in the "see more" link (Default: "See more", null = no link.)</param>
+            <param name="MoreLinkURL">URL to use for "see more" e.g. a link to full article. (Default: jQuery script to show hidden text.)</param>
+            <param name="MoreLinkTarget">Link Target eg "_blank" (Default: null)</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Truncate(System.Int32,System.Int32,System.String,System.String,System.String,System.String)">
+            <summary>
+                Truncates the text within this control to the given length, hiding anything longer and providing a link to show it if required.
+            </summary>
+            <param name="TruncLength">Length of text to remain visible.</param>
+            <param name="MaxLength">Maximum length of text before applying truncation. (Default: 125% of TruncLength.)</param>
+            <param name="MoreLinkText">Text to display in the "see more" link (Default: "See more", null = no link.)</param>
+            <param name="MoreLinkURL">URL to use for "see more" e.g. a link to full article. (Default: jQuery script to show hidden text.)</param>
+            <param name="MoreLinkTarget">Link Target eg "_blank" (Default: null)</param>
+            <param name="hiddenClass">Name of class used to identify hidden elements. (Default: Randomly generated.)</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Attr(QuickLibs.Javascript.JSON)">
+            <summary>
+                Adds or ammends the attributes of the current control.
+            </summary>
+            <param name="attrubutes">JSON containing a dictionary of attributes.</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Attr">
+            <summary>
+                Gets the attributes of the current control.
+            </summary>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Attr(System.String)">
+            <summary>
+                Gets the attributes of the current control.
+            </summary>
+            <param name="attrubutes">An HTML attribute eg. "title"</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Attr(System.String,System.String)">
+            <summary>
+                Adds or ammends an attribute of the current control.
+            </summary>
+            <param name="attrubute">An HTML attribute eg. "title"</param>
+            <param name="value">Attribute value eg. "My Title"</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Attr(System.String,System.String,System.Boolean)">
+            <summary>
+                Adds or ammends an attribute of the current control depending on the onlyIf bool.
+            </summary>
+            <param name="attrubute">An HTML attribute eg. "title"</param>
+            <param name="value">Attribute value eg. "My Title"</param>
+            <param name="onlyIf">True = Add / ammend attribute. False = Do nothing.</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.RemoveAttr(System.String)">
+            <summary>
+                Removes an attrubute from the current element.
+            </summary>
+            <param name="value">Attribute value eg. "My Title"</param>
+            <returns></returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.RemoveAttr(System.String,System.Boolean)">
+            <summary>
+                Removes an attrubute from the current element.
+            </summary>
+            <param name="value">Attribute value eg. "My Title"</param>
+            <param name="onlyIf">True = Remove attribute. False = Do nothing.</param>
+            <returns></returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Css(QuickLibs.Javascript.JSON)">
+            <summary>
+                Adds or ammends the style of the current control.
+            </summary>
+            <param name="style">JSON containing a dictionary of attributes.</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Css">
+            <summary>
+                Gets the style of the current control.
+            </summary>
+            <returns>Style value.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Css(System.String)">
+            <summary>
+                Gets the style of the current control.
+            </summary>
+            <param name="attrubute">HTML Style eg. "color"</param>
+            <returns>Style value.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Css(System.String,System.String)">
+            <summary>
+                Adds or ammends the style of the current control.
+            </summary>
+            <param name="attrubute">HTML Style eg. "color"</param>
+            <param name="value">Style value eg. "Red"</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Css(System.String,System.String,System.Boolean)">
+            <summary>
+                Adds, ammends or removes the style of the current control depending on the onlyIf bool.
+            </summary>
+            <param name="attrubute">HTML Style eg. "color"</param>
+            <param name="value">Style value eg. "Red"</param>
+            <param name="onlyIf">True = Add / ammend style. False = Do nothing.</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.RemoveCss(System.String)">
+            <summary>
+                Removes a style from the current element.
+            </summary>
+            <param name="attribute"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.RemoveCss(System.String,System.Boolean)">
+            <summary>
+                Removes the style of the current control depending on the onlyIf bool.
+            </summary>
+            <param name="attrubute">HTML Style eg. "title"</param>
+            <param name="onlyIf">True = Remove style. False = Do nothing.</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.AddClass(System.String)">
+            <summary>
+                Adds a CSS class to the current element.
+            </summary>
+            <param name="cssClass">CSS class name.</param>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.AddClass(System.String,System.Boolean)">
+            <summary>
+                Adds a CSS class to the current element.
+            </summary>
+            <param name="cssClass">CSS class name.</param>
+            <param name="onlyIf">True = Add class. False = Do nothing.</param>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.RemoveClass(System.String)">
+            <summary>
+                Removes a CSS class from the current element.
+            </summary>
+            <param name="cssClass">CSS class name.</param>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.RemoveClass(System.String,System.Boolean)">
+            <summary>
+                Removes a CSS class from the current element.
+            </summary>
+            <param name="cssClass">CSS class name.</param>
+            <param name="onlyIf">True = Add class. False = Do nothing.</param>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.HasClass(System.String)">
+            <summary>
+                Returns true if the current element is assigned the given cssClass.
+            </summary>
+            <param name="cssClass">CSS class name.</param>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Text">
+            <summary>
+                Returns the innerText within this element.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Text(System.String)">
+            <summary>
+                Populates the element with the given text.
+            </summary>
+            <param name="text">Text to place within the HTML tags.</param>
+            <returns>This Element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Html">
+            <summary>
+                Returns the innerHTML within this element.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Html(System.String)">
+            <summary>
+                Populates the element with the given HTML.
+            </summary>
+            <param name="text">HTML to place within the HTML tags.</param>
+            <returns>This Element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.SetID(System.String)">
+            <summary>
+                Sets the ID of the current element.
+            </summary>
+            <param name="id">ID attribute.</param>
+            <returns></returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Visible">
+            <summary>
+                Gets or sets the visibility of this element. When visible is 'false' the HTML will not render on the client.
+            </summary>
+            <returns>This element's visibility.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Visible(System.Boolean)">
+            <summary>
+                Gets or sets the visibility of this element. When visible is 'false' the HTML will not render on the client.
+            </summary>
+            <param name="visible">true = Render element, false = do not render.</param>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Hide">
+            <summary>
+                Sets the style display of this element to 'none' so that it will not be visible on the page.
+            </summary>
+            <returns>This element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Show">
+            <summary>
+                Clears the style display of this element so that it will be visible on the page.
+            </summary>
+            <returns>This element.</returns>
+        </member>
+        <member name="P:QuickLibs.Web.QuickHtml.Item(System.Int32)">
+            <summary>
+                Gets or Sets the child element at the given index.
+            </summary>
+            <param name="index">0 = first child element, -1 = last child element.</param>
+            <returns>Child element at index.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Parent">
+            <summary>
+                Gets the parent element of this element. If no parent exists return this element.
+            </summary>
+            <returns>A parent element.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Find(System.String)">
+            <summary>
+                Returns the first child element with the given selector.
+            </summary>
+            <param name="Selector">CSS3 Selector eg tagName: "span", id: "#MySpan", class: ".MySpan", attribute: "[title]" or exact attribute: "[title:My Span]"</param>
+            <returns>Child element, or null if not found.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.Find(System.String,System.Int32)">
+            <summary>
+                Returns the nth child element with the given selector.
+            </summary>
+            <param name="Selector">CSS3 Selector eg tagName: "span", id: "#MySpan", class: ".MySpan", attribute: "[title]" or exact attribute: "[title:My Span]"</param>
+            <param name="index">Zero based, 0 returns the first element found. 1 returns the second etc...</param>
+            <returns>Child element, or null if not found.</returns>
+        </member>
+        <member name="P:QuickLibs.Web.QuickHtml.Length">
+            <summary>
+                Returns the number of children within this element.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.HasControls">
+            <summary>
+                Returns true if this control contains other controls.
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Web.QuickHtml.Ctrl">
+            <summary>
+                Returns this element as a Control.
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Web.QuickHtml.ID">
+            <summary>
+                Gets or sets the ID of the current element.
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Web.QuickHtml.TagName">
+            <summary>
+                Returns the tagName of the current element if available.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.ToString">
+            <summary>
+                Returns this elemented as a formatted HTML string.
+            </summary>
+            <returns>This outer HTML.</returns>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.DoResponse">
+            <summary>
+                Sends the current QuickHtml back to the client via the given HttpResponse.
+                If completeResponse = True, the ASP.NET ThreadAbortException will be thrown. Either ignore it by ensuring DoResponse() is not inside a try{} OR explicitly handle the execepiton silently.
+            </summary>
+            <param name="response">e.g. Page.Response</param>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.DoResponse(System.Boolean)">
+            <summary>
+                Sends the current QuickHtml back to the client via the given HttpResponse.
+                If completeResponse = True, the ASP.NET ThreadAbortException will be thrown. Either ignore it by ensuring DoResponse() is not inside a try{} OR explicitly handle the execepiton silently.
+            </summary>
+            <param name="response">e.g. Page.Response</param>
+            <param name="completeResponse">Default: True = Send only the HTML and end the Response. False = Append the HTML and leave the Response open.</param>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.AutoP(System.String)">
+            <summary>
+                Formats plain text into html paragraphs split at the "\n" character and replaces keywords.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.AutoBR(System.String)">
+            <summary>
+                Formats plain text into HTML paragraphs split at a double "\n\n" character and line breaks at the "\n" character and replaces keywords.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.WrapLinks(System.String)">
+            <summary>
+                Converts urls within the text into links.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.HasLinks(System.String)">
+            <summary>
+                Returns true if given text contains a url.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Web.QuickHtml.CropImage(System.Web.UI.WebControls.Image,QuickLibs.Web.QuickHtml,System.Int32,System.Int32)">
+            <summary>
+                Wraps the given image in the given div. Ensure the div has hidden overflow in order to crop the image.
+                Ensure Image and Div have both Width and Height dimentions, all in the same format (eg "px" or "%")
+            </summary>
+        </member>
+    </members>
+</doc>

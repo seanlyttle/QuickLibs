@@ -1,0 +1,1046 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QuickLibs.Javascript.JSON</name>
+    </assembly>
+    <members>
+        <member name="T:QuickLibs.Javascript.JSON">
+            <summary>
+            Represents an object encoded in JSON. Can be either a dictionary 
+            mapping strings to other objects, an array of objects, or a single 
+            object, which represents a scalar.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor">
+            <summary>
+                Creates an empty JSON
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.String)">
+            <summary>
+                Creates a JSON from a serialized JSONstring OR QueryString
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.String,System.Boolean)">
+            <summary>
+                Creates a JSON from a serialized JSONstring OR QueryString.
+            </summary>
+            <param name="s">Raw string OR Serialized JSON string OR QueryString.</param>
+            <param name="Deserialize">Default: true, Set to false to use Raw string</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.String,QuickLibs.Javascript.JSON)">
+            <summary>
+                Creates a JSON Dictionary with a single JSON entry.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.String,System.String)">
+            <summary>
+                Creates a JSON Dictionary with a single String entry.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.Int32)">
+            <summary>
+                Creates an Integer based JSON
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.Int64)">
+            <summary>
+                Creates an Integer based JSON
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.Boolean)">
+            <summary>
+                Creates a Boolean based JSON
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(QuickLibs.Javascript.JSON[])">
+            <summary>
+                Creates an Array based JSON from an existing JSON Array
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.String[])">
+            <summary>
+                Creates an Array based JSON from an existing string Array.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.String[],System.Boolean)">
+            <summary>
+                Creates an Array based JSON from an existing string Array.
+            </summary>
+            <param name="s">A String Array containing raw strings OR Serialized JSON strings OR QueryStrings OR a combination of the three.</param>
+            <param name="Deserialize">Default: false, Set to true to use Deserialize strings</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.Object[])">
+            <summary>
+                Creates an Array based JSON from an existing Array of serializable objects.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.Collections.Generic.Dictionary{System.String,QuickLibs.Javascript.JSON})">
+            <summary>
+                Creates a Dictionary based JSON
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(QuickLibs.Javascript.JSON)">
+            <summary>
+                Creates an Array based JSON with one JSON entry.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.DateTime)">
+            <summary>
+                Creates an Date based JSON
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.TimeSpan)">
+            <summary>
+                Creates an TimeSpan based JSON
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.Data.DataRow)">
+            <summary>
+                Creates an DataRow based JSON
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.Data.DataRow,System.Char)">
+            <summary>
+                Creates an DataRow based JSON
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.Data.DataRow,System.String)">
+            <summary>
+                Creates an DataRow based JSON
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.Data.DataRow,System.String,System.Char)">
+            <summary>
+                Creates an DataRow based JSON
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.Data.DataTable)">
+            <summary>
+                Creates an DataTable based JSON
+            </summary>
+            <param name="dataTable"></param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.Data.DataTable,System.Char)">
+            <summary>
+                Creates an DataTable based JSON
+            </summary>
+            <param name="dataTable"></param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.Data.DataTable,System.String)">
+            <summary>
+                Creates an DataTable based JSON
+            </summary>
+            <param name="dataTable"></param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.Data.DataTable,System.String,System.Char)">
+            <summary>
+                Creates an DataTable based JSON
+            </summary>
+            <param name="dataTable"></param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.Data.DataSet)">
+            <summary>
+                Creates an DataSet based JSON
+            </summary>
+            <param name="dataTable"></param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.Data.DataSet,System.Char)">
+            <summary>
+                Creates an DataSet based JSON
+            </summary>
+            <param name="dataTable"></param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.Data.DataSet,System.String)">
+            <summary>
+                Creates an DataSet based JSON
+            </summary>
+            <param name="dataTable"></param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.Data.DataSet,System.String,System.Char)">
+            <summary>
+                Creates an DataSet based JSON
+            </summary>
+            <param name="dataTable"></param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.#ctor(System.Object)">
+            <summary>
+                Creates a serializable object based JSON (Object.ToString() is used to record the data.)
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Finalize">
+            <summary>
+                Destructor
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.IsDictionary">
+            <summary>
+            Returns true if this JSON represents a dictionary.
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.IsArray">
+            <summary>
+            Returns true if this JSON represents an array.
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.IsString">
+            <summary>
+            Returns true if this JSON represents a string value. 
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.IsInteger">
+            <summary>
+            Returns true if this JSON represents an integer value.
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.IsNumber">
+            <summary>
+            Returns true if this JSON represents an integer or double value.
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.IsBoolean">
+            <summary>
+            Returns true if this JSON represents a boolean value.
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.IsDateTime">
+            <summary>
+            Returns true if this JSON represents a DateTime object.
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.IsNull">
+            <summary>
+                Returns true if this JSON is null.
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.IsEmpty">
+            <summary>
+                Returns true if this JSON is empty or null.
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.IsOutOfRange">
+            <summary>
+                Returns true if internal index iteration is out of range.
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.IsEndOfRange">
+            <summary>
+                Returns true if internal index iteration is pointing to last item.
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.IsCOOR">
+            <summary>
+              (Is Child out of Range) Returns true if the JSON at the internal Index is out of range
+              Useful for nested auto iterations eg While(!a.IsOutOfRange) { a.[a.IsCOOR][true].String = "foo"; }
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Contains(System.String)">
+            <summary>
+               Returns True if the given value is found in this JSON as an array value, a dictionary key, or string.
+            </summary>
+            <param name="value">The string value to search for.</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Contains(System.String,System.Boolean)">
+            <summary>
+               Returns True if the given value is found in this JSON as an array value, a dictionary key, or string.
+            </summary>
+            <param name="value">The string value to search for.</param>
+            <param name="recursive">Default: false, true = recursively search through sub JSONs.</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Contains(System.String,System.StringComparison)">
+            <summary>
+               Returns True if the given value is found in this JSON as an array value, a dictionary key, or string.
+            </summary>
+            <param name="value">The string value to search for.</param>
+            <param name="comparisonType">Default: StringComparison.CurrentCulture, default is case sensitive.  Use an alternative comparisonType for case insensitive search.</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Contains(System.String,System.Boolean,System.StringComparison)">
+            <summary>
+               Returns True if the given value is found in this JSON as an array value, a dictionary key, or string.
+            </summary>
+            <param name="value">The string value to search for.</param>
+            <param name="recursive">Default: false, true = recursively search through sub JSONs.</param>
+            <param name="comparisonType">Default: StringComparison.CurrentCulture, default is case sensitive.  Use an alternative comparisonType for case insensitive search.</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.HasErrors">
+            <summary>
+            Returns true if this JSON contains an "error" message.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.HasErrors(System.Boolean)">
+            <summary>
+            Returns true if this JSON contains an "error" message.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.HasData">
+            <summary>
+            Returns trus if this JSON contains data that is not an error message.
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.Key">
+            <summary>
+              Gets the Key pair of this JSON if it is contained within a parent Dictionary.
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.Index">
+            <summary>
+              Gets the index of this JSON if it is contained within a parent Array or Dictionary.
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.InternalIndex">
+            <summary>
+              Gets or Sets the internal Index used for automatic iteration
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.DynamicAllocation">
+            <summary>
+              Default: False.  When true, 'out of range' elements will be created when referenced.
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.Exception">
+            <summary>
+            Gets the current error in the form of a JSONException.
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.Item(System.String,System.Boolean)">
+            <summary>
+            Gets or Sets the contents of the dictionary at key as a JSON
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.Item(System.String)">
+            <summary>
+            Gets or Sets the contents of the dictionary at key as a JSON
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.Item(System.Int32,System.Boolean)">
+            <summary>
+            Gets or Sets the contents of the Array or Dictionary at index as a JSON.
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.Item(System.Int32)">
+            <summary>
+            Gets or Sets the contents of the Array or Dictionary at index as a JSON.
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.Item(System.Boolean)">
+            <summary>
+            Gets or Sets the next JSON in an Array or Dictionary.
+            </summary>
+            <param name="inc">true: Increment pointer after peek, false: Leave pointer at current index.</param>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.Dictionary">
+            <summary>
+            Returns this JSON as a dictionary
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.Array">
+            <summary>
+            Returns this JSON as an array
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.String">
+            <summary>
+            Gets or Sets this JSON as a string
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.SafeString">
+            <summary>
+            Gets or Sets this JSON as a safe (non-null) string
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.Integer">
+            <summary>
+            Gets or Sets this JSON as an integer
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.Number">
+            <summary>
+            Gets or Sets this JSON as a Double precision numumber
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.Boolean">
+            <summary>
+            Gets or Sets this JSON as a boolean
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.DateTime">
+            <summary>
+            Gets or Sets this JSON as a DateTime
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.Date">
+            <summary>
+            Gets or Sets this JSON as a DateTime containing only the Date
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.Time">
+            <summary>
+            Gets or Sets this JSON as a DateTime containing only the Time
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.Length">
+            <summary>
+            Gets or Sets the length of the data contained within
+            </summary>
+        </member>
+        <member name="P:QuickLibs.Javascript.JSON.KeyIfNull">
+            <summary>
+            Gets or Sets the default key to use in a dictionary reference if the given key is null.
+            If this value is null, a System.ArgumentNullException will be thrown when trying to reference a dictionary entry with a null key.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.ToJSON">
+            <summary>
+                Returns the JSON as a Serialized JSON string formatted for easy reading. Alternative access to JSON.ToString(3)
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.ToJSON(System.String)">
+            <summary>
+                Returns the JSON as a Serialized JSON string formatted for easy reading wrapped in the given callback function.
+            </summary>
+            <param name="callback">Wrap the JSON string in a callback function by this name, passing the JSON as a parameter. (Necessary for cross domain AJAX calls.)</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.ToJSON(System.Boolean)">
+            <summary>
+                Returns the JSON as a Serialized JSON string formatted for easy reading or minified as requested.
+            </summary>
+            <param name="minified">True: JSON string will be returned with whitespace removed. False: (default) Returned JSON string will be formatted for easy reading.</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.ToJSON(System.String,System.Boolean)">
+            <summary>
+                Returns the JSON as a Serialized JSON string formatted for easy reading or minified as requested wrapped in the given callback function.
+            </summary>
+            <param name="callback">Wrap the JSON string in a callback function by this name, passing the JSON as a parameter. (Necessary for cross domain AJAX calls.)</param>
+            <param name="minified">True: JSON string will be returned with whitespace removed. False: (default) Returned JSON string will be formatted for easy reading.</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.ToString">
+            <summary>
+                Returns the JSON as a Serialized JSON string.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.ToString(System.Boolean)">
+            <summary>
+                Returns the JSON as a Serialized JSON string.
+            </summary>
+            <param name="QuoteValues">Default: False, Set to override Int and Bool behaviour and output them as Quoted strings.</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.ToString(System.Int32)">
+            <summary>
+                Returns the JSON as a Serialized JSON string.
+            </summary>
+            <param name="Indent">Default: 0, Number of characters to indent formatted JSON (0 outputs a minified JSON).</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.ToString(System.Boolean,System.Boolean)">
+            <summary>
+                Returns the JSON as a Serialized JSON string.
+            </summary>
+            <param name="QuoteValues">Default: False, Set to override Int and Bool behaviour and output them as Quoted strings.</param>
+            <param name="QuoteKeys">Default: True, Clear to override Dictionary Keys and output them without Quoted strings.</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.ToString(System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+                Returns the JSON as a Serialized JSON string.
+            </summary>
+            <param name="QuoteValues">Default: False, Set to override Int and Bool behaviour and output them as Quoted strings.</param>
+            <param name="QuoteKeys">Default: True, Clear to override Dictionary Keys and output them without Quoted strings.</param>
+            <param name="Indent">Number of characters to indent formatted JSON (0 outputs a minified JSON).</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.ToQueryString">
+            <summary>
+                Returns the JSON object as a querystring.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.ToQueryString(System.String)">
+            <summary>
+                Returns the JSON object as a querystring.
+            </summary>
+            <param name="prepend">String to prepend at the beginning of the string (Default: "?").</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.ToXML">
+            <summary>
+                Returns the JSON object as an XML string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.ToXmlNode">
+            <summary>
+                Returns the current JSON as an XmlNode. If this JSON is a dictionary with one entry, it will be used as
+                the root. Otherwise this and all sub JSONs will be created as child nodes of a new root node.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.DoResponse">
+            <summary>
+                Sends the current JSON back to the client via the current HttpResponse.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.DoResponse(System.Boolean)">
+            <summary>
+                Sends the current JSON back to the client via the current HttpResponse.
+                If completeResponse = True, the ASP.NET ThreadAbortException will be thrown. Either ignore it by ensuring DoResponse() is not inside a try{} OR explicitly handle the execepiton silently.
+            </summary>
+            <param name="minified">Default: False = return formatted string. True = return string with whitespace removed.</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.DoResponse(System.String)">
+            <summary>
+                Sends the current JSON back to the client via the current HttpResponse.
+                If completeResponse = True, the ASP.NET ThreadAbortException will be thrown. Either ignore it by ensuring DoResponse() is not inside a try{} OR explicitly handle the execepiton silently.
+            </summary>
+            <param name="callback">Wrap the JSON in a callback function. (Default: QueryString["callback"])</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.DoResponse(System.String,System.Boolean)">
+            <summary>
+                Sends the current JSON back to the client via the current HttpResponse.
+                If completeResponse = True, the ASP.NET ThreadAbortException will be thrown. Either ignore it by ensuring DoResponse() is not inside a try{} OR explicitly handle the execepiton silently.
+            </summary>
+            <param name="callback">Wrap the JSON in a callback function. (Default: QueryString["callback"])</param>
+            <param name="minified">Default: False = return formatted string. True = return string with whitespace removed.</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.DoResponse(System.String,System.String)">
+            <summary>
+                Sends the current JSON back to the client via the current HttpResponse.
+                If completeResponse = True, the ASP.NET ThreadAbortException will be thrown. Either ignore it by ensuring DoResponse() is not inside a try{} OR explicitly handle the execepiton silently.
+            </summary>
+            <param name="callback">Wrap the JSON in a callback function. (Default: QueryString["callback"])</param>
+            <param name="ContentType">eg. "text/javascript" (Default: "applicaiton/json")</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.DoResponse(System.String,System.String,System.Boolean)">
+            <summary>
+                Sends the current JSON back to the client via the current HttpResponse.
+                If completeResponse = True, the ASP.NET ThreadAbortException will be thrown. Either ignore it by ensuring DoResponse() is not inside a try{} OR explicitly handle the execepiton silently.
+            </summary>
+            <param name="callback">Wrap the JSON in a callback function. (Default: QueryString["callback"])</param>
+            <param name="ContentType">eg. "text/javascript" (Default: "applicaiton/json")</param>
+            <param name="minified">Default: False = return formatted string. True = return string with whitespace removed.</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.DoResponse(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+                Sends the current JSON back to the client via the current HttpResponse.
+                If completeResponse = True, the ASP.NET ThreadAbortException will be thrown. Either ignore it by ensuring DoResponse() is not inside a try{} OR explicitly handle the execepiton silently.
+            </summary>
+            <param name="callback">Wrap the JSON in a callback function. (Default: QueryString["callback"])</param>
+            <param name="ContentType">eg. "text/javascript" (Default: "applicaiton/json")</param>
+            <param name="minified">Default: False = return formatted string. True = return string with whitespace removed.</param>
+            <param name="completeResponse">Default: True = Send only the JSON and end the Response. False = Append the JSON and leave the Response open.</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.IndexOf(System.String)">
+            <summary>
+               Returns the zero based index of the given value within this JSON. If it can't be found this will return -1.
+               If updateInternalIndex is set then after the value is found the Internal index will point to it. If it is not found the index will not change.
+            </summary>
+            <param name="value">value/key/substring to search for.</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.IndexOf(System.String,System.Int32)">
+            <summary>
+               Returns the zero based index of the given value within this JSON. If it can't be found this will return -1.
+               If updateInternalIndex is set then after the value is found the Internal index will point to it. If it is not found the index will not change.
+            </summary>
+            <param name="value">value/key/substring to search for.</param>
+            <param name="startIndex">Default: 0, Zero based index at wich to start the search.</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.IndexOf(System.String,System.Boolean)">
+            <summary>
+               Returns the zero based index of the given value within this JSON. If it can't be found this will return -1.
+               If updateInternalIndex is set then after the value is found the Internal index will point to it. If it is not found the index will not change.
+            </summary>
+            <param name="value">value/key/substring to search for.</param>
+            <param name="updateInternalIndex">Default: false, Set to update the internal index if the value is found.</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.IndexOf(System.String,System.Int32,System.Boolean)">
+            <summary>
+               Returns the zero based index of the given value within this JSON. If it can't be found this will return -1.
+               If updateInternalIndex is set then after the value is found the Internal index will point to it. If it is not found the index will not change.
+            </summary>
+            <param name="value">value/key/substring to search for.</param>
+            <param name="startIndex">Default: 0, Zero based index at wich to start the search.</param>
+            <param name="updateInternalIndex">Default: false, Set to update the internal index if the value is found.</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Save(System.String)">
+            <summary>
+            Saves the current JSON into a text file with the given name.
+            </summary>
+            <param name="filename">Target filename including relative path and extension.</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Add(System.String)">
+            <summary>
+            Dynamically appends a scalar value to the end of the current Array.
+            </summary>
+            <param name="value">Value to append</param>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Add(QuickLibs.Javascript.JSON)">
+            <summary>
+            Dynamically appends a JSON object to the end of the current JSON.
+            </summary>
+            <param name="value">JSON to append</param>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Add(System.String,System.String)">
+            <summary>
+            Dynamically appends a key and scalar value pair to the end of the current Dictionary.
+            </summary>
+            <param name="key">Key to append</param>
+            <param name="value">Value to append</param>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Add(System.String,QuickLibs.Javascript.JSON)">
+            <summary>
+            Dynamically appends a key and JSON value pair to the end of the current Dictionary.
+            </summary>
+            <param name="key">Key to append</param>
+            <param name="value">Value to append</param>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Add(System.String,System.String,System.Char)">
+            <summary>
+            Dynamically appends a key and scalar value pair to the end of a Dictionary within this dictionary according to the given delimited path.
+            </summary>
+            <param name="path">Delimited path to the key to append</param>
+            <param name="value">Value to append</param>
+            <param name="Delimiter">Delimiting character allows creation of a JSON structure in one step. eg. '/' </param>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Add(System.String,QuickLibs.Javascript.JSON,System.Char)">
+            <summary>
+            Dynamically appends a key and JSON value pair to the end of a Dictionary within this dictionary according to the given delimited path.
+            </summary>
+            <param name="path">Delimited path to the key to append</param>
+            <param name="value">Value to append</param>
+            <param name="Delimiter">Delimiting character allows creation of a JSON structure in one step. eg. '/' </param>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Concat(QuickLibs.Javascript.JSON[])">
+            <summary>
+            Dynamically joins 1 or more JSON objects to the end of the current JSON.
+            (Duplicate dictionary keys will overide the existing entry).
+            </summary>
+            <param name="args">JSONs to concat</param>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Remove(System.String)">
+            <summary>
+            Dynamically removes a key/value/substring from this JSON.
+            </summary>
+            <param name="value">Value or Key to be removed</param>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Remove(QuickLibs.Javascript.JSON)">
+            <summary>
+            Dynamically removes given JSON from this JSON.
+            </summary>
+            <param name="value">JSON to be removed</param>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.RemoveEach(QuickLibs.Javascript.JSON)">
+            <summary>
+            Dynamically remove the given JSON structure from this JSON.
+            </summary>
+            <param name="values">Array of Values/Keys, or Dictionary structure to be removed</param>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Filter(System.String)">
+            <summary>
+                Dynamically filters for a list of keys/values/substrings found in this JSON.
+            </summary>
+            <param name="value">Comma seperated list of keys/values/substrings to be retained.</param>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Filter(QuickLibs.Javascript.JSON)">
+            <summary>
+                Dynamically filters for a list of keys/values/substrings found in this JSON.
+            </summary>
+            <param name="filter">JSON dictionary/list of keys/values/substrings to be retained.</param>
+            <returns>This filtered JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Find(System.String)">
+            <summary>
+               Returns the first instance of a JSON with the given dictionary key within this JSON and all sub JSONs.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.FindAt(System.String)">
+            <summary>
+               Returns the instance of a JSON at the given smart path within this JSON.
+            </summary>
+            <param name="path">The route of keys or indexes to the desired JSON. e.g. "FirstKey.SubKey.0"</param>
+            <param name="Delimiter">Default: '.' Delimiting character that separates keys and indexes in the path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.FindAt(System.String,System.Char)">
+            <summary>
+               Returns the instance of a JSON at the given smart path within this JSON.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Clear">
+            <summary>
+            Dynamically clears all data from this JSON object.
+            </summary>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Copy(QuickLibs.Javascript.JSON)">
+            <summary>
+               Replaces contents of this JSON with a low level copy of j.
+            </summary>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Clone(QuickLibs.Javascript.JSON)">
+            <summary>
+               Replaces contents of this JSON with a high level copy of j. Certain updates to j will update this JSON too.
+            </summary>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Copy">
+            <summary>
+                Returns a low level copy of this JSON.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Push(System.String)">
+            <summary>
+               Provides stack behaviour. Pushes the given scalar value onto the end of this JSON array. Eqivellent behaviour to "Add".  (Array based JSONs only) 
+            </summary>
+            <param name="value">Value to append</param>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Push(QuickLibs.Javascript.JSON)">
+            <summary>
+               Provides stack behaviour. Pushes the given scalar value onto the end of this JSON array. Eqivellent behaviour to "Add".  (Array based JSONs only)
+            </summary>
+            <param name="value">JSON to append</param>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Peek">
+            <summary>
+               Provides stack behaviour. Peeks at the JSON at the top of the current stack.  (Array based JSONs only)
+            </summary>
+            <returns>The JSON at the top of the stack.</returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Pop">
+            <summary>
+               Provides stack behaviour. Pops the JSON at off the top of the current stack.  (Array based JSONs only)
+            </summary>
+            <returns>The JSON that was at the top of the stack.</returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Sort">
+            <summary>
+                Sorts the contents of the current Array based or Dictionary based JSON into ascending order.
+                If a Smart Path parameter is given, it will sort the Array based on the contents of each sub JSON at the given Path.
+            </summary>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Sort(System.String)">
+            <summary>
+                Sorts the contents of the current Array based or Dictionary based JSON into ascending order.
+                If a Smart Path parameter is given, it will sort the Array based on the contents of each sub JSON at the given Path.
+            </summary>
+            <param name="Path">The smart path of the sub Dictionary to sort by. e.g. "SortKey" or "Data.0.SortKey"</param>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Sort(System.String,System.Char)">
+            <summary>
+                Sorts the contents of the current Array based or Dictionary based JSON into ascending order.
+                If a Smart Path parameter is given, it will sort the Array based on the contents of each sub JSON at the given Path.
+            </summary>
+            <param name="Path">The smart path of the sub Dictionary to sort by. e.g. "SortKey" or "Data.0.SortKey"</param>
+            <param name="Delimiter">Default: '.'  Delimiting character that separates keys and indexes in the Smart Path. </param>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.SortDesc">
+            <summary>
+                Sorts the contents of the current Array based or Dictionary based JSON into ascending order.
+                If a Smart Path parameter is given, it will sort the Array based on the contents of each sub JSON at the given Path.
+            </summary>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.SortDesc(System.String)">
+            <summary>
+                Sorts the contents of the current Array based or Dictionary based JSON into ascending order.
+                If a Smart Path parameter is given, it will sort the Array based on the contents of each sub JSON at the given Path.
+            </summary>
+            <param name="Path">The smart path of the sub Dictionary to sort by. e.g. "SortKey" or "Data.0.SortKey"</param>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.SortDesc(System.String,System.Char)">
+            <summary>
+                Sorts the contents of the current Array based or Dictionary based JSON into ascending order.
+                If a Smart Path parameter is given, it will sort the Array based on the contents of each sub JSON at the given Path.
+            </summary>
+            <param name="Path">The smart path of the sub Dictionary to sort by. e.g. "SortKey" or "Data.0.SortKey"</param>
+            <param name="Delimiter">Default: '.'  Delimiting character that separates keys and indexes in the Smart Path. </param>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Sort(System.String,System.Char,System.Boolean)">
+            <summary>
+                Sorts the contents of the current Array based or Dictionary based JSON into ascending order.
+                If a Smart Path parameter is given, it will sort the Array based on the contents of each sub JSON at the given Path.
+            </summary>
+            <param name="Path">The smart path of the sub Dictionary to sort by. e.g. "SortKey" or "Data.0.SortKey"</param>
+            <param name="Delimiter">Default: '.'  Delimiting character that separates keys and indexes in the Smart Path. </param>
+            <param name="Desc">Default: False = Ascending order. True = Descending order.</param>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Swap(System.Int32,System.Int32)">
+            <summary>
+                Swaps position the JSONs stored at each of the given indexes.
+            </summary>
+            <returns>This JSON. Enables a "Chain" to be used. </returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.GetMax">
+            <summary>
+                Fetches the JSON with the highest value. If a key is supplied it will return the JSON containing the highest value with the given key.
+            </summary>
+            <returns>Returns the first JSON with the higest value.</returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.GetMax(System.String)">
+            <summary>
+                Fetches the JSON with the highest value. If a key is supplied it will return the JSON containing the highest value with the given key.
+            </summary>
+            <param name="key">The containing key to compare.</param>
+            <returns>Returns the first JSON with the higest value.</returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.GetMin">
+            <summary>
+                Fetches the JSON with the smallest value. If a key is supplied it will return the JSON containing the smallest value with the given key.
+            </summary>
+            <returns>Returns the first JSON with the smallest value.</returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.GetMin(System.String)">
+            <summary>
+                Fetches the JSON with the smallest value. If a key is supplied it will return the JSON containing the smallest value with the given key.
+            </summary>
+            <param name="key">The containing key to compare.</param>
+            <returns>Returns the first JSON with the smallest value.</returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.SetDynamic">
+            <summary>
+                Turns DynamicAllocation on.
+            </summary>
+            <returns>This JSON.</returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.SetDynamic(System.Boolean)">
+            <summary>
+                Turns DynamicAllocation on or off.
+            </summary>
+            <param name="dynamicAllocation">The desired state of DynamicAllocation.</param>
+            <returns>This JSON.</returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Pivot(System.String)">
+            <summary>
+                <para>Pivots the current Array of Dictionaries around a given primaryKey.</para>
+                <para>This only works on an Array of Dictionaries.</para>
+            </summary>
+            <param name="primaryKey">A key in the sub Dictionaries whose value will become the Key for the pivoted JSON.</param>
+            <returns>This JSON pivoted around the primaryKey</returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Pivot(System.String,System.Boolean)">
+            <summary>
+                <para>Pivots the current Array of Dictionaries around a given primaryKey.</para>
+                <para>This only works on an Array of Dictionaries.</para>
+            </summary>
+            <param name="primaryKey">A key in the sub Dictionaries whose value will become the Key for the pivoted JSON.</param>
+            <param name="append">True=Duplicate primaryKeys will be appended to an Array. False=Duplicated primaryKeys will replace the existing JSON (Default).</param>    
+            <returns>This JSON pivoted around the primaryKey</returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Pivot(System.String,System.String)">
+            <summary>
+                <para>Pivots the current Array of Dictionaries around a given primaryKey.</para>
+                <para>This only works on an Array of Dictionaries.</para>
+            </summary>
+            <param name="primaryKey">A key in the sub Dictionaries whose value will become the Key for the pivoted JSON.</param>
+            <param name="valueKey">A key in the sub Dictionaries whose value will become the Value for the pivoted JSON. If ommitted, the entire sub Dictionary (without the primaryKey) is used.</param>
+            <returns>This JSON pivoted around the primaryKey</returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Pivot(System.String,System.String,System.Boolean)">
+            <summary>
+                <para>Pivots the current Array of Dictionaries around a given primaryKey.</para>
+                <para>This only works on an Array of Dictionaries.</para>
+            </summary>
+            <param name="primaryKey">A key in the sub Dictionaries whose value will become the Key for the pivoted JSON.</param>
+            <param name="valueKey">A key in the sub Dictionaries whose value will become the Value for the pivoted JSON. If ommitted, the entire sub Dictionary (without the primaryKey) is used.</param>
+            <param name="append">True=Duplicate primaryKeys will be appended to an Array. False=Duplicated primaryKeys will replace the existing JSON (Default).</param>    
+            <returns>This JSON pivoted around the primaryKey</returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Pivot">
+            <summary>
+                <para>Pivots the current Array or Dictionary based JSON around its sub JSONs. e.g. a 3x4 Array will become a 4x3 array.</para>
+                <para>Each sub JSON must be of the same type.</para>
+            </summary>
+            <returns>This JSON after pivot.</returns>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Equals(System.Object)">
+            <summary>
+            Returns true if the contents of this JSON matches exactly the contents of the given object.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Is(QuickLibs.Javascript.JSON)">
+            <summary>
+            Returns true if the given JSON is a reference to the same data as the current JSON.
+            This is equivalent to object.ReferenceEquals(this, j);
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.GetHashCode">
+            <summary>
+            Serves as the default hash function.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.System#Collections#Generic#IEnumerable{QuickLibs#Javascript#JSON}#GetEnumerator">
+            <summary>
+            Returns an IEnumerator for the JSON.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an IEnumerator for the JSON.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.CreateFromURL(System.String)">
+            <summary>
+            Creates a JSON from a basic URL using a YQL query.
+            See http://developer.yahoo.com/yql/ for more information.
+            </summary>
+            <param name="url">select * from html where url=[url]</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.CreateFromURL(System.String,System.Boolean)">
+            <summary>
+            Creates a JSON from a basic URL using a YQL query.
+            See http://developer.yahoo.com/yql/ for more information.
+            </summary>
+            <param name="url">select * from html where url=[url]</param>
+            <param name="incDiag">Default: false, Set to true if you want to include the diagnostic information from YQL.</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.CreateFromURL(System.String,System.String)">
+            <summary>
+            Creates a JSON from a basic URL using a YQL query.
+            See http://developer.yahoo.com/yql/ for more information.
+            </summary>
+            <param name="url">select * from html where url=[url]</param>
+            <param name="xpath">select * from html where url=[url] and xpath=[xpath]</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.CreateFromURL(System.String,System.String,System.Boolean)">
+            <summary>
+            Creates a JSON from a basic URL using a YQL query.
+            See http://developer.yahoo.com/yql/ for more information.
+            </summary>
+            <param name="url">select * from html where url=[url]</param>
+            <param name="xpath">select * from html where url=[url] and xpath=[xpath]</param>
+            <param name="incDiag">Default: false, Set to true if you want to include the diagnostic information from YQL.</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.CreateFromYQL(System.String)">
+            <summary>
+            Creates a JSON from a plain YQL query.
+            See http://developer.yahoo.com/yql/ for more information.
+            </summary>
+            <param name="query">eg. "select * from html where url=[url]"</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.CreateFromYQL(System.String,System.Boolean)">
+            <summary>
+            Creates a JSON from a plain YQL query.
+            See http://developer.yahoo.com/yql/ for more information.
+            </summary>
+            <param name="query">eg. "select * from html where url=[url]"</param>
+            <param name="incDiag">Default: false, Set to true if you want to include the diagnostic information from YQL.</param>
+        </member>
+        <member name="F:QuickLibs.Javascript.JSON.cookies">
+            <summary>
+            This CookieContainer maintains the session for all HTTP calls. This can be shared with external calls, or overridden to change sessions.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Load(System.String)">
+            <summary>
+            Creates a JSON from given json file url.
+            </summary>
+            <param name="url">URL of the json page or file.</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Load(System.String,System.Int32)">
+            <summary>
+            Creates a JSON from given JSON file url.
+            </summary>
+            <param name="url">URL of the json page or file.</param>
+            <param name="timeout">Request timeout in milliseconds (Default: 30000).</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Load(System.String,QuickLibs.Javascript.JSON)">
+            <summary>
+            Creates a JSON from given JSON file url.
+            </summary>
+            <param name="url">URL of the json page or file.</param>
+            <param name="headers">A dictionary of Key Value pairs, or Array of headers.</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Load(System.String,System.Action{QuickLibs.Javascript.JSON})">
+            <summary>
+            Creates a JSON from given JSON file url.
+            </summary>
+            <param name="url">URL of the json page or file.</param>
+            <param name="callback">If a callback Action is supplied Load will be executed asynchrounously. e.g. private void Callback(JSON response) {}</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Load(System.String,System.Int32,QuickLibs.Javascript.JSON)">
+            <summary>
+            Creates a JSON from given JSON file url.
+            </summary>
+            <param name="url">URL of the json page or file.</param>
+            <param name="timeout">Request timeout in milliseconds (Default: 30000).</param>
+            <param name="headers">A dictionary of Key Value pairs, or Array of headers.</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Load(System.String,QuickLibs.Javascript.JSON,System.Action{QuickLibs.Javascript.JSON})">
+            <summary>
+            Creates a JSON from given JSON file url.
+            </summary>
+            <param name="url">URL of the json page or file.</param>
+            <param name="headers">A dictionary of Key Value pairs, or Array of headers.</param>
+            <param name="callback">If a callback Action is supplied Load will be executed asynchrounously. e.g. private void Callback(JSON response) {}</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Load(System.String,System.Int32,System.Action{QuickLibs.Javascript.JSON})">
+            <summary>
+            Creates a JSON from given JSON file url.
+            </summary>
+            <param name="url">URL of the json page or file.</param>
+            <param name="timeout">Request timeout in milliseconds (Default: 30000).</param>
+            <param name="callback">If a callback Action is supplied Load will be executed asynchrounously. e.g. private void Callback(JSON response) {}</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Load(System.String,System.Int32,QuickLibs.Javascript.JSON,System.Action{QuickLibs.Javascript.JSON})">
+            <summary>
+            Creates a JSON from given JSON file url.
+            </summary>
+            <param name="url">URL of the json page or file.</param>
+            <param name="timeout">Request timeout in milliseconds (Default: 30000).</param>
+            <param name="headers">A dictionary of Key Value pairs, or Array of headers.</param>
+            <param name="callback">If a callback Action is supplied Load will be executed asynchrounously. e.g. private void Callback(JSON response) {}</param>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.IsNullOrEmpty(QuickLibs.Javascript.JSON)">
+            <summary>
+            Returns true when the given JSON is either null or IsNull or IsEmpty.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Safe(QuickLibs.Javascript.JSON)">
+            <summary>
+            Returns the given JSON, or a new JSON() if null.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSON.Safe(QuickLibs.Javascript.JSON,QuickLibs.Javascript.JSON)">
+            <summary>
+            Returns the given JSON, or an alternative JSON if the first is null, or "IsNull".
+            </summary>
+        </member>
+        <member name="T:QuickLibs.Javascript.JSONException">
+            <summary>
+            JSONExceptions are returned when there is an error within a JSON object.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSONException.#ctor">
+            <summary>
+            Represents an empty exception raised during a JSON process.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSONException.#ctor(System.String)">
+            <summary>
+            Represents an exception raised during a JSON process.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSONException.#ctor(System.String,System.Exception)">
+            <summary>
+            Represents an exception raised during a JSON process with a cause exception.
+            </summary>
+        </member>
+        <member name="M:QuickLibs.Javascript.JSONException.#ctor(QuickLibs.Javascript.JSON)">
+            <summary>
+            Represents an exception based on a JSON error message. Pass the json["error"] when json.HasErrors() is true.
+            </summary>
+        </member>
+    </members>
+</doc>

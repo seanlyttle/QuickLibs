@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QuickLibs.Utils</name>
+    </assembly>
+    <members>
+        <member name="T:QuickLibs.Utils.TimeSpanNotation">
+            <summary>
+            Summary description for NewsFeeder
+            </summary>
+        </member>
+    </members>
+</doc>
